@@ -15,7 +15,7 @@ export class RecipeService {
   getRecipes(): Observable<Recipe[]> {
     return this.httpClient.get<any>(`${this.apiHost}/recipes`)
       .pipe(
-        map(response => (response.data as any[])
+        map(response => (response as any[])
           .map(recipe => new Recipe(recipe.id, recipe.name, recipe.description, recipe.ingredients)))
       );
   }
